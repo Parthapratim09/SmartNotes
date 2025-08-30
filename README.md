@@ -36,5 +36,4 @@ It helps students and professionals to **create, organize, search, and collabora
 
 ---
 
-## 📂 Project Structure
 
