@@ -155,7 +155,7 @@ export default function Login() {
     }, 800);
 
     } catch (error) {
-      alert(`Login failed: ${error.response?.data?.msg || error.message}`);
+      // alert(`Login failed: ${error.response?.data?.msg || error.message}`);
       showSnackbar("Login failed!", "error");
     }
   };
