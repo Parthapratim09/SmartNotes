@@ -60,7 +60,7 @@ io.on("connection", (socket) => {
 
       // Check if the user is the owner or a collaborator
       if (
-        note.User.toString() === userId ||
+        note.user.toString() === userId ||
         note.sharedWith.map(id => id.toString()).includes(userId)
       ) {
         socket.join(noteId);
