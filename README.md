@@ -1,5 +1,7 @@
 # 📝 SmartNotes: Your AI Study Companion
 
+live link:- https://smart-notes-71em.onrender.com
+
 SmartNotes is an **AI-powered notes management application** built with the **MERN stack**.  
 It helps students and professionals to **create, organize, search, and collaborate** on notes effectively, powered by **AI features** like semantic search and automatic summarization.  
 
