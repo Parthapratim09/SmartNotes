@@ -37,7 +37,7 @@ export const verifyEmail = async (req, res) => {
   
   const user = await User.findOne({ verificationCode });
   if (!user) {
-    return res.status(400).json({ msg: "User not found" });
+    return res.status(400).json({ msg: "Invalid verification code" });
   }
   user.isVerified = true;
   user.verificationCode = null; 
