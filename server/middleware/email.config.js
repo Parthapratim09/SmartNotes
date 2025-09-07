@@ -5,15 +5,15 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "parthamakhal80@gmail.com",
-    pass: "idsz odvt edkl odyl",
+    user: process.env.nodemailer_email,
+    pass: process.env.nodemailer_password,
   },
 });
 
 const sendEmail = async (email, verificationCode) => {
     try {
         const info = await transporter.sendMail({
-            from: '"SmartNotes" <parthamakhal80@gmail.com>',
+            from: `"SmartNotes" <${process.env.nodemailer_email}>`,
             to: email,
             subject: "Email Verification",
             text: `Your verification code is: ${verificationCode}`,
