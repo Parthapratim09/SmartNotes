@@ -6,6 +6,8 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Dashboard from "./pages/dashBoard.jsx";
 import NoteEditor from "./pages/noteEditor.jsx";
+import Verify from "./pages/verify.jsx";
+import ForgetPass from "./pages/forgetPass.jsx";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -31,9 +33,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
-          <Route 
-            path="/" 
+          <Route path="/verify" element={<Verify />} />
+          <Route path="/forget-password" element={<ForgetPass />} />
+          <Route
+            path="/"
             element={
               <ProtectedRoute>
                 <Dashboard />

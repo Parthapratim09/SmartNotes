@@ -105,7 +105,7 @@ function SignUpLink() {
 function ForgotPasswordLink() {
   return (
     <Box textAlign="center">
-      <Link href="/" variant="body2">Forgot password?</Link>
+      <Link href="/forget-password" variant="body2">Forgot password?</Link>
     </Box>
   );
 }
@@ -155,8 +155,7 @@ export default function Login() {
     }, 800);
 
     } catch (error) {
-      // alert(`Login failed: ${error.response?.data?.msg || error.message}`);
-      showSnackbar("Login failed!", "error");
+      showSnackbar(`${error.response?.data?.msg || error.message}`, "error");
     }
   };
 

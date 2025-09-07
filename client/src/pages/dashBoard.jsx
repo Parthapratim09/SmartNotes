@@ -28,7 +28,6 @@ import AddTaskIcon from '@mui/icons-material/AddTask';
 const Dashboard = () => {
   const { token, logout } = useContext(AuthContext);
   const theme = useTheme();
-  const navigate = useNavigate();
   
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");

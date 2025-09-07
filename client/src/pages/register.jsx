@@ -142,13 +142,13 @@ export default function Register() {
   const theme = useTheme();
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({ username: "", email: "", password: "" });
+  const [formData, setFormData] = useState({ username: "", email: "", password: "",otp:"" });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  }; 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -156,7 +156,7 @@ export default function Register() {
     try {
       await api.post("/auth/register", formData);
       setSuccess(true);
-      setTimeout(() => navigate("/login"), 2000); 
+      setTimeout(() => navigate("/verify",{state:{email:formData.email}}), 500);
     } catch (err) {
       setError(err.response?.data?.msg || "Registration failed. Please try again.");
     }
@@ -192,7 +192,15 @@ export default function Register() {
             {error && <Alert severity="error" sx={{ my: 2 }}>{error}</Alert>}
 
             <CustomUsernameField value={formData.username} onChange={handleChange} />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>  
             <CustomEmailField value={formData.email} onChange={handleChange} />
+            </Box>
+           
+            {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>  
+            <CustomOTPField value={formData.otp} onChange={handleChange} />
+            <CustomOTPButton name="Verify" task={handleVerifyOTP} />
+            </Box> */}
+            
             <CustomPasswordField value={formData.password} onChange={handleChange} />
             <CustomButton />
             <Box sx={{ textAlign: 'center' }}>
@@ -206,7 +214,7 @@ export default function Register() {
         open={success}
         autoHideDuration={3000}
         onClose={() => setSuccess(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
         <Alert onClose={() => setSuccess(false)} severity="success" sx={{ width: '100%' }}>
           Registration successful! Redirecting to login...
